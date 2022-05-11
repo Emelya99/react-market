@@ -3,7 +3,8 @@ import Close from './../../Close';
 
 function HeaderClose(props) {
     return (
-        <Link to="/" onClick={props.changeColor} >
+        
+        <Link to="/" >
             <Close />
         </Link>
     )

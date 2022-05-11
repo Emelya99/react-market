@@ -7,24 +7,14 @@ import styles from './Header.module.scss';
 
 
 function Header(props) {
-    const [color, setColor] = React.useState("#FFF");
-
-    function changeBgHeader () {
-        setColor("#F5F5F5");
-    }
-
-    function defaultBgHeader () {
-        setColor("#FFF");
-    }
-
     return (
-        <header className={styles.header} style={{ background: color }}>
+        <header className={styles.header} style={{backgroundColor: props.headerBackground}}>
             <div className='container'>
                 <div className='d-flex justify-between'>
-                    <Logo />
+                    <Logo companyName={props.companyName} />
                     <Routes>
-                        <Route path="/" element={<HeaderInfo changeColor={changeBgHeader} />} />
-                        <Route path="/form" element={<HeaderClose changeColor={defaultBgHeader} />} />
+                        <Route path="/" element={<HeaderInfo />} />
+                        <Route path="/form" element={<HeaderClose />} />
                     </Routes>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import Content from './components/Content';
 import Drawer from './components/Drawer';
 import Form from './components/Form';
+import HeaderContainer from './components/Header/HeaderContainer';
 
-function App(props) {
+function App() {
   const [drawerOpened, setdrawerOpened] = React.useState(false);
 
   function handleOpenPolitic() {
@@ -21,7 +21,7 @@ function App(props) {
 
   return (
     <div className="wrapper">
-      <Header />
+      <HeaderContainer />
       <main className='main'>
         <Routes>
           <Route path="/" element={<Content />} />
