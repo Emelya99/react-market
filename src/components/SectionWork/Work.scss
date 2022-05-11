@@ -1,0 +1,56 @@
+.work{
+  
+    .slick-list{
+      margin: 0 -15px;
+      display: flex;
+      overflow: visible;
+    }
+  
+    .slick-track{
+      display: flex;
+    }
+  
+    .slick-slide{
+      margin: 0 15px;
+      background: #F5F5F5;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .4s ease;
+      min-height: 480px;
+      max-height: 480px;
+      position: relative;
+  
+      &:hover{
+        background: #FFDF31;
+        transition: all .4s ease;
+  
+        & .work__item{
+  
+          & img{
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s ease;
+          }
+  
+          & p{
+            opacity: 1;
+            visibility: visible;
+            transition: all .4s ease;
+          }
+        }
+      }
+    }
+  
+    .arrow{
+      position: absolute;
+      top: -64px;
+    }
+  
+    .prev{
+      right: 49px;
+    }
+  
+    .next{
+      right: -1px;
+    }
+  }

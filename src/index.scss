@@ -1,0 +1,129 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FFFFFF;
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+a,button{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  text-decoration: none;
+  color: #000;
+}
+
+a{
+  transition: all .4s ease;
+
+  &:hover{
+    color: #FFDF31;
+    transition: all .4s ease;
+  }
+}
+
+svg{
+  transition: all .4s ease;
+  fill: #000;
+
+  &:hover{
+    transition: all .4s ease;
+    fill: #FFDF31;
+  }
+}
+
+.title{
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+.title-big{
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 66px;
+}
+
+button{
+  border: none;
+  cursor: pointer;
+  transition: all .4s ease;
+
+  &:hover{
+    transition: all .4s ease;
+  }
+}
+
+.hidden-btn{
+  display: none;
+}
+
+#root{
+  height: 100%;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main{
+  flex: 1 1 auto;
+}
+
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+}
+
+section{
+  overflow: hidden;
+}
+
+.sec-bottom{
+  margin-bottom: 72px;
+}
+
+// Arrow
+.arrow{
+  background: transparent;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  z-index: 1;
+
+  &:hover{
+    background: transparent;
+
+    & svg{
+      fill: #FFDF31;
+    }
+  }
+
+  & svg{
+    fill: #000;
+  }
+
+  &.disabled{
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}
+// Main Styles End

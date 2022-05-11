@@ -1,0 +1,50 @@
+.banner{
+    background: #F5F5F5;
+  
+    .arrow{
+      position: absolute;
+      bottom: 58px;
+  
+      &__wrapper{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: 1140px;
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+    }
+  
+    .prev{
+      left: 22px;
+    }
+  
+    .next{
+      left: 71px;
+    }
+  
+    &__wrapper{
+      position: absolute;
+      left: 15px;
+      bottom: 48px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      width: 88px;
+      height: 44px;
+  
+      & span{
+        position: relative;
+  
+        &::after{
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 44px;
+          width: 1px;
+          height: 28px;
+          background: #F5F5F5;
+        }
+      }
+    }
+  }

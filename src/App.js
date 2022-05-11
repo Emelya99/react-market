@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Content from './components/Content';
+import Drawer from './components/Drawer';
+import Form from './components/Form';
 
-function App() {
+function App(props) {
+  const [drawerOpened, setdrawerOpened] = React.useState(false);
+
+  function handleOpenPolitic() {
+    setdrawerOpened(true);
+    document.body.style.overflow = "hidden"; // так делать нельзя
+  }
+
+  function handleClosePolitic() {
+    setdrawerOpened(false);
+    document.body.style.overflow = "visible"; // так делать нельзя
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <main className='main'>
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path="/form" element={<Form />} />
+        </Routes>
+      </main>
+      <Footer onOpenPolitic={handleOpenPolitic} />
+      {drawerOpened && <Drawer onClosePolitic={handleClosePolitic} />}
     </div>
   );
 }
