@@ -8,16 +8,17 @@ class Instagram extends React.Component {
 
     componentDidMount() {
         axios.get(`https://625187db2dc339451d2ef136.mockapi.io/instagramItems?page=1&limit=${this.props.previewPhoto}`).then(response => {
-            this.props.setInstagramItems(response.data);
+            this.props.setInstagramItems(response.data.items);
         })
     }
 
     loadMorePhoto = (count) => {
         this.props.getCurrentPhoto(count);
         axios.get(`https://625187db2dc339451d2ef136.mockapi.io/instagramItems?page=1&limit=${count}`).then(response => {
-            this.props.setInstagramItems(response.data);
-            console.log(count);
-            if (count > response.data.length) {
+            this.props.setInstagramItems(response.data.items);
+            let totalCount = response.data.count;
+            console.log(count + " / " +totalCount);
+            if (count >= totalCount) {
                 this.props.isButtonActiveState(true);
             }
         })
