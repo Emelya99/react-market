@@ -2,22 +2,21 @@ import React from "react";
 import Title from "../Title";
 import styles from "./Instagram.module.scss";
 import InstagramItem from "./InstagramItem";
-import * as axios from 'axios';
+import { getInstagramItems, loadMoreInstagramItems } from "../../dal/api";
 
 class Instagram extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://625187db2dc339451d2ef136.mockapi.io/instagramItems?page=1&limit=${this.props.previewPhoto}`).then(response => {
-            this.props.setInstagramItems(response.data.items);
+        getInstagramItems(this.props.previewPhoto).then(data => {
+            this.props.setInstagramItems(data.items);
         })
     }
 
     loadMorePhoto = (count) => {
         this.props.getCurrentPhoto(count);
-        axios.get(`https://625187db2dc339451d2ef136.mockapi.io/instagramItems?page=1&limit=${count}`).then(response => {
-            this.props.setInstagramItems(response.data.items);
-            let totalCount = response.data.count;
-            console.log(count + " / " +totalCount);
+        loadMoreInstagramItems(count).then(data => {
+            this.props.setInstagramItems(data.items);
+            let totalCount = data.count;
             if (count >= totalCount) {
                 this.props.isButtonActiveState(true);
             }
@@ -48,9 +47,9 @@ class Instagram extends React.Component {
                     <div className={styles.wrapper}>
                         {instagramElements}
                     </div>
-                    { this.props.isButtonActive ? null :
-                    <button className={styles.btn} onClick={() => { this.loadMorePhoto(count) }}>показать ещё</button>}
-                    
+                    {this.props.isButtonActive ? null :
+                        <button className={styles.btn} onClick={() => { this.loadMorePhoto(count) }}>показать ещё</button>}
+
 
                     <button className="mt-50 mr-30" onClick={this.deleteInstagramPhoto}>
                         Delete one photo
