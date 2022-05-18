@@ -1,5 +1,5 @@
-const ADD_INSTAGRAM_PHOTO = 'ADD-INSTAGRAM-PHOTO';
-const DELETE_INSTAGRAM_PHOTO = 'DELETE-INSTAGRAM-PHOTO';
+import { instagramAPI } from "../dal/api";
+
 const SET_INSTAGRAM_ITEMS = 'SET-INSTAGRAM-ITEMS';
 const GET_CURRENT_PHOTO = 'GET-CURRENT-PHOTO';
 const IS_BUTTON_ACTIVE_STATUS = 'IS-BUTTON-ACTIVE-STATUS';
@@ -16,21 +16,6 @@ let initialState = {
 
 const instagramReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_INSTAGRAM_PHOTO: 
-            return {
-                ...state,
-                instagramItems: [
-                    ...state.instagramItems,
-                    { imgUrl: './img/work/work-3.png', alt: 'image-5' }
-                ]
-            };
-        case DELETE_INSTAGRAM_PHOTO:
-            return {
-                ...state,
-                instagramItems: [
-                    ...state.instagramItems.filter((_, i) => i !== state.instagramItems.length - 1)
-                ]
-            };
         case SET_INSTAGRAM_ITEMS:
             return { ...state, instagramItems: [ ...action.instagramItems ] }
         case GET_CURRENT_PHOTO: 
@@ -53,11 +38,31 @@ const instagramReducer = (state = initialState, action) => {
     }
 }
 
-export const addInstagramPhoto = () => ({ type: ADD_INSTAGRAM_PHOTO });
-export const deleteInstagramPhoto = () => ({ type: DELETE_INSTAGRAM_PHOTO });
 export const setInstagramItems = (instagramItems) => ({ type: SET_INSTAGRAM_ITEMS, instagramItems });
 export const getCurrentPhoto = (currentPhoto) => ({ type: GET_CURRENT_PHOTO, currentPhoto });
 export const isButtonActiveState = (isButtonActive) => ({ type: IS_BUTTON_ACTIVE_STATUS, isButtonActive });
 export const isLoadMoreDisabledState = (isLoadMoreDisabled) => ({ type: IS_LOAD_MORE_DISABLED, isLoadMoreDisabled });
+
+export const getInstagramItems = (previewPhoto) => (dispatch) => {
+    dispatch(isLoadMoreDisabledState(true));
+    instagramAPI.getInstagramItems(previewPhoto).then(data => {
+        dispatch(setInstagramItems(data.items));
+        dispatch(isLoadMoreDisabledState(false));
+    })
+}
+
+export const loadMoreInstagram = (count) => (dispatch) => {
+    dispatch(getCurrentPhoto(count));
+    dispatch(isLoadMoreDisabledState(true));
+    instagramAPI.loadMoreInstagramItems(count).then(data => {
+        dispatch(setInstagramItems(data.items));
+        let totalCount = data.count;
+        if (count >= totalCount) {
+            dispatch(isButtonActiveState(true));
+        }
+        dispatch(isLoadMoreDisabledState(false));
+    })
+}
+
 
 export default instagramReducer;
