@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer';
+import FooterContainer from './components/Footer/FooterContainer';
 import Content from './components/Content';
 import Drawer from './components/Drawer';
-import Form from './components/Form';
+import FormContainer from './components/Form/FormContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 
 function App() {
@@ -25,10 +25,10 @@ function App() {
       <main className='main'>
         <Routes>
           <Route path="/" element={<Content />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form" element={<FormContainer />} />
         </Routes>
       </main>
-      <Footer onOpenPolitic={handleOpenPolitic} />
+      <FooterContainer onOpenPolitic={handleOpenPolitic} />
       {drawerOpened && <Drawer onClosePolitic={handleClosePolitic} />}
     </div>
   );

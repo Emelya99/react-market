@@ -2,11 +2,12 @@ import Logo from '../Logo';
 import styles from './Footer.module.scss';
 
 function Footer(props) {
+    console.log(props)
     return (
         <footer className={styles.footer}>
             <div className='container'>
                 <div className={`${styles.wrapper} d-flex justify-between align-center p-25 mb-25`}>
-                    <Logo />
+                    <Logo companyName={props.companyName} />
                     <a className='title ml-30 mb-5' href='/#'>поделиться</a>
                     <ul className={`${styles.list} d-flex`}>
                         <li>
@@ -22,7 +23,7 @@ function Footer(props) {
                     </ul>
                 </div>
                 <div className={`${styles.bottom} d-flex justify-between align-center`}>
-                    <p>© Гросс маркет {(new Date().getFullYear())}</p>
+                    <p>© {props.companyName} {(new Date().getFullYear())}</p>
                     <button onClick={props.onOpenPolitic}>Политика обработки персональных данных</button>
                 </div>
             </div>

@@ -18,7 +18,7 @@ function Form (props) {
                         </div>
                         <div className={styles.question}>
                             <h3 className='title'>Остались вопросы?</h3>
-                            <ButtonPhone />
+                            <ButtonPhone phone={props.phone}  callPhone={props.callPhone} />
                         </div>
                     </div>
                 </div>

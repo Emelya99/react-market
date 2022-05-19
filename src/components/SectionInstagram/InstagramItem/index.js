@@ -1,4 +1,4 @@
-import styles from "./InstagramItem.module.scss";
+import styles from "../Instagram.module.scss";
 
 function InstagramItem(props) {
 

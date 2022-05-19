@@ -1,8 +1,8 @@
 import styles from './ButtonPhone.module.scss';
 
-function ButtonPhone() {
+function ButtonPhone(props) {
     return (
-        <a className={styles.phone} href="tel:123">123</a>
+        <a className={styles.phone} href={props.callPhone}>{props.phone}</a>
     )
 }
 

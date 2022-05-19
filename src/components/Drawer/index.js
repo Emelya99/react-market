@@ -1,7 +1,7 @@
 import styles from './Drawer.module.scss';
 import Close from './../Close';
 
-export default function Drawer(props) {
+function Drawer(props) {
 
     return (
         <div className={styles.drawer}>
@@ -36,3 +36,5 @@ export default function Drawer(props) {
         </div>
     );
 }
+
+export default Drawer;
