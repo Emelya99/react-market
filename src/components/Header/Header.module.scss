@@ -1,7 +1,25 @@
+// Header
 .header{
     padding: 30px 0;
 }
 
+// HeaderClose
 .close + .header{
     background: #f5f5f5;
+}
+
+// HeaderInfo
+.phone{
+    margin-right: 30px;
+}
+
+.form{
+    padding: 10px 16px 14px 16px;
+    background: #FFDF31;
+    border-radius: 8px;
+
+    &:hover{
+        color: #FFF;
+        background: #000000;
+    }
 }

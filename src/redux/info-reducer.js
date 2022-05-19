@@ -1,4 +1,3 @@
-// const SET_INFO_DAFAULT = "SET_INFO_DAFAULT";
 const HEADER_BACKGROUND = "HEADER_BACKGROUND";
 
 let initialState = {
@@ -10,10 +9,6 @@ let initialState = {
 
 const infoReducer = (state = initialState, action) => {
     switch (action.type) {
-        // case SET_INFO_DAFAULT:
-        //     return {
-        //         ...state
-        //     }
         case HEADER_BACKGROUND:
             return {
                 ...state,
@@ -24,8 +19,7 @@ const infoReducer = (state = initialState, action) => {
     }
 }
 
-// export const setInfoDefault = () => ({ type: SET_INFO_DAFAULT });
-export const changeHeaderBackground = (headerBackground) => ({ type: HEADER_BACKGROUND , headerBackground});
 
+export const changeHeaderBackground = (headerBackground) => ({ type: HEADER_BACKGROUND , headerBackground});
 
 export default infoReducer;

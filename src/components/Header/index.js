@@ -13,7 +13,7 @@ function Header(props) {
                 <div className='d-flex justify-between'>
                     <Logo companyName={props.companyName} />
                     <Routes>
-                        <Route path="/" element={<HeaderInfo />} />
+                        <Route path="/" element={<HeaderInfo phone={props.phone} callPhone={props.callPhone} />} />
                         <Route path="/form" element={<HeaderClose />} />
                     </Routes>
                 </div>
