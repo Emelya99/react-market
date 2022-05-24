@@ -1,18 +1,18 @@
-const HEADER_BACKGROUND = "HEADER_BACKGROUND";
+const IS_BACKGROUND_HEADER = "IS_BACKGROUND_HEADER";
 
 let initialState = {
     phone: '+7 (926) 433-14-16',
     callPhone: 'tel:+79264331416',
     companyName: 'гросс маркет',
-    headerBackground: '#FFF'
+    isBackgroundHeader: true
 }
 
 const infoReducer = (state = initialState, action) => {
     switch (action.type) {
-        case HEADER_BACKGROUND:
+        case IS_BACKGROUND_HEADER:
             return {
                 ...state,
-                headerBackground: action.headerBackground
+                isBackgroundHeader: action.isBackgroundHeader
             }
         default:
             return state;
@@ -20,6 +20,6 @@ const infoReducer = (state = initialState, action) => {
 }
 
 
-export const changeHeaderBackground = (headerBackground) => ({ type: HEADER_BACKGROUND , headerBackground});
+export const changeHeaderBackground = (isBackgroundHeader) => ({ type: IS_BACKGROUND_HEADER , isBackgroundHeader});
 
 export default infoReducer;

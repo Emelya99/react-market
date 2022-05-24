@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
         phone: state.info.phone,
         callPhone: state.info.callPhone,
         companyName: state.info.companyName,
-        headerBackground: state.info.headerBackground
+        isBackgroundHeader: state.info.isBackgroundHeader
     }
 }
 

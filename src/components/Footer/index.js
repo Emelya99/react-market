@@ -2,7 +2,6 @@ import Logo from '../Logo';
 import styles from './Footer.module.scss';
 
 function Footer(props) {
-    console.log(props)
     return (
         <footer className={styles.footer}>
             <div className='container'>

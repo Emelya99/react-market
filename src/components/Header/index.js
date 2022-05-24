@@ -7,14 +7,17 @@ import styles from './Header.module.scss';
 
 
 function Header(props) {
+
     return (
-        <header className={styles.header} style={{backgroundColor: props.headerBackground}}>
+        <header className={styles.header}
+            style={{ backgroundColor: props.isBackgroundHeader ? '#FFF' : '#F5F5F5' }}
+        >
             <div className='container'>
                 <div className='d-flex justify-between'>
                     <Logo companyName={props.companyName} />
                     <Routes>
-                        <Route path="/" element={<HeaderInfo phone={props.phone} callPhone={props.callPhone} />} />
-                        <Route path="/form" element={<HeaderClose />} />
+                        <Route path="/" element={<HeaderInfo phone={props.phone} callPhone={props.callPhone} changeHeaderBackground={props.changeHeaderBackground} />} />
+                        <Route path="/form" element={<HeaderClose changeHeaderBackground={props.changeHeaderBackground}  />} />
                     </Routes>
                 </div>
             </div>

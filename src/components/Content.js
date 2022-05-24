@@ -4,7 +4,7 @@ import Work from './SectionWork';
 import InstagramContainer from './SectionInstagram/InstagramContainer';
 import Geography from './SectionGeography';
 
-function Content(props) {
+function Content() {
     return (
         <React.Fragment>
             <Banner />
