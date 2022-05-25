@@ -4,12 +4,14 @@ import Close from './../../Close';
 
 function HeaderClose(props) {
 
+    let changeHeaderBackground = props.changeHeaderBackground;
+
     React.useEffect(() => {
-        props.changeHeaderBackground(false);
+        changeHeaderBackground(false);
         return () => {
-            props.changeHeaderBackground(true);
+            changeHeaderBackground(true);
         }
-    }, [])
+    }, [changeHeaderBackground])
 
     return (
         
