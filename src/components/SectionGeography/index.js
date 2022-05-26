@@ -2,15 +2,11 @@ import React from 'react';
 import Title from '../Title';
 import './Geography.scss'
 
-function Geography() {
-    const [count, setCount] = React.useState(1);
+const API_KEY = process.env.REACT_APP_API_KEY
+console.log(API_KEY);
 
-    let addText = React.createRef();
 
-    let text = () =>{
-        text = addText.current.value;
-        console.log(text);
-    }
+function Geography() {    
 
     return (
         <section className="geography sec-bottom">
@@ -18,27 +14,7 @@ function Geography() {
                 <Title
                     title="география"
                 />
-                <div className='mt-30 mb-50'>
-                    <textarea className='mb-15' ref={addText}></textarea>
-                    <button className='d-block' onClick={text}>Отправить</button>
-                </div>
-                <div>
-                    <p className='mb-15'>{count}</p>
-                    <button className='mr-30'
-                        onClick={() => setCount(count - 1)}
-                        disabled={count === 0}>
-                        -
-                    </button>
-                    <button className='mr-30'
-                        onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
-                    <button
-                        onClick={() => setCount(0)}
-                        disabled={count === 0}>
-                        Reset
-                    </button>
-                </div>
+
             </div>
         </section>
     );

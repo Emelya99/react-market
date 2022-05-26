@@ -7,10 +7,17 @@ class Instagram extends React.Component {
 
     componentDidMount() {
         this.props.getInstagramItems(this.props.previewPhoto);
+        console.log('componentDidMount');
     }
 
     loadMorePhoto = (count) => {
         this.props.loadMoreInstagram(count);
+        console.log('loadMorePhoto');
+    }
+
+    componentWillUnmount () {
+        this.props.deleteInstagramItems();
+        console.log('componentWillUnmount');
     }
 
     render() {

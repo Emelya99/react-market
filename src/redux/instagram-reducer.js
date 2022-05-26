@@ -64,5 +64,9 @@ export const loadMoreInstagram = (count) => (dispatch) => {
     })
 }
 
+export const deleteInstagramItems = () => (dispatch) => {
+    dispatch(isButtonActiveState(false));
+}
+
 
 export default instagramReducer;

@@ -1,5 +1,5 @@
 import Instagram from './index';
-import { getInstagramItems, loadMoreInstagram } from './../../redux/instagram-reducer';
+import { getInstagramItems, loadMoreInstagram, deleteInstagramItems } from './../../redux/instagram-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const InstagramContainer = connect(mapStateToProps, {getInstagramItems, loadMoreInstagram }) (Instagram);
+const InstagramContainer = connect(mapStateToProps, {getInstagramItems, loadMoreInstagram, deleteInstagramItems }) (Instagram);
 
 
 export default InstagramContainer;
