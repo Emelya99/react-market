@@ -123,3 +123,41 @@ section{
   }
 }
 // Main Styles End
+
+// Form Styles
+label{
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  line-height: 24px;
+}
+input{
+  width: 100%;
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 500;
+  padding: 12px 16px;
+  background: #F5F5F5;
+  border-radius: 8px;
+  border: none;
+  color: #000000;
+
+  &.error{
+    background: #FF6666;
+    opacity: 0.3;
+  }
+
+  &:focus{
+    border: none;
+    outline: 2px solid #FFDF31;
+  }
+
+  &::placeholder{
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 500;
+    color: #000000;
+    opacity: 0.3;
+  }
+}
+// Form Styles End
