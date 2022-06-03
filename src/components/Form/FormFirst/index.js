@@ -2,14 +2,42 @@ import ButtonPhone from '../../ButtonPhone';
 import styles from '../Form.module.scss';
 import { Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import Select, { components } from "react-select";
 import checkedImage from './checked.svg';
+import caretImage from './caret-form.svg';
 import Title from '../../Title';
+
+const DropdownIndicator = props => {
+    return (
+      <components.DropdownIndicator {...props}>
+            <img src={caretImage} alt="caret-form" />
+      </components.DropdownIndicator>
+    );
+  };
 
 function FormFirst(props) {
 
+    const options = [
+        { value: 'merchandiser', label: 'товаровед' },
+        { value: 'driver', label: 'водитель' },
+        { value: 'baker', label: 'пекарь' },
+        { value: 'cashier', label: 'кассир' },
+        { value: 'salesman', label: 'продавец' },
+        { value: 'cook', label: 'повар' },
+        { value: 'receiver', label: 'приёмщик' }
+    ]
+
     const validationSchema = Yup.object().shape({
-        // job: Yup.string().required('выбирете вакансию'),
+        job: Yup.array()
+        .min(1, "выбирете вакансию")
+        .of(
+          Yup.object().shape({
+            label: Yup.string().required(),
+            value: Yup.string().required()
+          })
+        ),
         fullName: Yup.string().required('заполнете поле'),
+        phone: Yup.number().required('заполнете поле'),
         email: Yup.string().email('поле заполнено не корректно'),
         gender: Yup.string().required("выберите пол"),
         resume: Yup.string(),
@@ -40,38 +68,43 @@ function FormFirst(props) {
                     }}
                     validationSchema={validationSchema}
                 >
-                    {({ values, errors, touched, isValid, handleSubmit, dirty }) => (
+                    {({ values, errors, touched, isValid, handleChange, handleBlur, handleSubmit, dirty }) => (
 
                         <div className={styles.formContent}>
                             <Form>
                                 {/* <div className={styles.formItem}>
-                                <label htmlFor="job">
-                                    Вакансия *
-                                    { touched.job && !errors.job
-                                        && <img src={checkedImage} className={styles.checked} alt="checked" />}
-                                </label>
-                                <Field as="select" name="job">
-                                    <option value="merchandiser">товаровед</option>
-                                    <option value="driver">водитель</option>
-                                    <option value="baker">пекарь</option>
-                                    <option value="cashier">кассир</option>
-                                    <option value="salesman">продавец</option>
-                                    <option value="cook">повар</option>
-                                    <option value="receiver">приёмщик</option>
-                                </Field>
-                            </div> */}
+                                    <p className={styles.formTitle}>
+                                        Вакансия *
+                                        { !errors.job
+                                                && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                    </p>
+                                    <Select
+                                        id="job"
+                                        options={options}
+                                        placeholder="выберите работу мечты"
+                                        classNamePrefix={'custom-select'}
+                                        isSearchable={false}
+                                        components={{ DropdownIndicator }}
+                                        onChange={handleChange}
+                                        value={values.job}
+                                        onBlur={handleBlur}
+                                    />
+                                    {touched.job && errors.job
+                                        && <p className={styles.formError}>{errors.job}</p>
+                                    }
+                                </div> */}
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
                                         ФИО *
-                                        { touched.fullName && !errors.fullName
+                                        {touched.fullName && !errors.fullName
                                             && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                     </p>
-                                    <Field 
+                                    <Field
                                         className={touched.fullName && errors.fullName && 'error'}
                                         type="text"
                                         name="fullName"
                                         value={values.fullName}
-                                        autocomplete="off"
+                                        autoComplete="off"
                                     />
                                     {touched.fullName && errors.fullName
                                         && <p className={styles.formError}>{errors.fullName}</p>
@@ -80,12 +113,29 @@ function FormFirst(props) {
                                 <div className={styles.formRow}>
                                     <div className={styles.formColumn}>
 
+                                        <div className={styles.formItem}>
+                                            <p className={styles.formTitle}>
+                                                Контактый телефон *
+                                                {!errors.phone && values.phone.length >= 10
+                                                    && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                            </p>
+                                            <Field
+                                                className={touched.phone && errors.phone && 'error'}
+                                                name="phone"
+                                                type="tel"
+                                                value={values.phone}
+                                                autoComplete="off"
+                                            />
+                                            {touched.phone && errors.phone
+                                                && <p className={styles.formError}>{errors.phone}</p>
+                                            }
+                                        </div>
                                     </div>
                                     <div className={styles.formColumn}>
                                         <div className={`${styles.formItem} form-radio`}>
                                             <p className={styles.formTitle}>
                                                 Пол *
-                                                { !errors.gender && values.gender.length > 1
+                                                {!errors.gender && values.gender.length > 1
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                             </p>
                                             <label>
@@ -106,12 +156,12 @@ function FormFirst(props) {
                                                 {touched.email && !errors.email && values.email.length > 1
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                             </p>
-                                            <Field 
+                                            <Field
                                                 className={touched.email && errors.email && 'error'}
                                                 type="email"
                                                 name="email"
                                                 value={values.email}
-                                                autocomplete="off"
+                                                autoComplete="off"
                                             />
                                             {touched.email && errors.email
                                                 && <p className={styles.formError}>{errors.email}</p>
@@ -122,10 +172,10 @@ function FormFirst(props) {
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
                                         Резюме
-                                        { !errors.resume && values.resume.length >= 1
+                                        {!errors.resume && values.resume.length >= 1
                                             && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                     </p>
-                                    <Field 
+                                    <Field
                                         className={touched.resume && errors.resume && 'error'}
                                         as="textarea"
                                         name="resume"
@@ -145,12 +195,12 @@ function FormFirst(props) {
                                         <Field type="checkbox" name="accepted" />
                                         <span>я подтверждаю согласие на обработку персональных данных и принимаю условия рассмотрения обращений *</span>
                                     </label>
-                                    { errors.accepted
+                                    {errors.accepted
                                         && <p className={styles.formError}>{errors.accepted}</p>
                                     }
                                 </div>
                                 <button
-                                    // disabled={!isValid}
+                                    disabled={!isValid}
                                     className={styles.submitBtn}
                                     onClick={handleSubmit}
                                     type="submit"

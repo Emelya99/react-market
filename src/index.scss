@@ -214,7 +214,7 @@ input{
     line-height: 18px;
     padding-left: 36px;
     cursor: pointer;
-    margin-bottom: 6px;
+    margin: 10px 0 6px;
     display: inline-block;
 
     &:not(:last-child){
@@ -266,3 +266,104 @@ textarea{
   min-height: 94px;
 }
 // Form Styles End
+
+// Custom Select Form
+.wrapper .custom-select{
+
+  &__control{
+    border: none;
+    background: #F5F5F5;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+
+    &.custom-select__control--is-focused{
+      box-shadow: none;
+      outline: 2px solid #FFDF31 !important;
+    }
+  }
+
+  &__single-value,
+  &__placeholder{
+    font-size: 18px;
+    line-height: 23px;
+    padding: 0;
+    margin: 0;
+    color: #000000;
+  }
+
+  &__input-container{
+    padding: 0;
+    margin: 0;
+  }
+
+  &__value-container{
+    padding: 0;
+  }
+
+  &__indicator{
+    padding: 0 0 0 20px;
+  }
+
+  &__indicator-separator{
+    display: none;
+  }
+
+  &__menu{
+    margin: 8px 0 0;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid #F5F5F5;
+
+    &-list{
+      padding: 0;
+      position: relative;
+
+      &::-webkit-scrollbar{
+        background-color: #FFF;
+        width: 4px;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb{
+        background-color: #F5F5F5;
+        border-radius: 8px;
+      }
+    }
+
+    & .css-9gakcf-option{
+      background: #F5F5F5;
+
+      &:first-child{
+        border-radius: 8px 0px 0px 0px;
+      }
+
+      &:last-child{
+        border-radius: 0px 0px 0px 8px;
+      }
+    }
+  }
+
+  &__option{
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    padding: 12px 16px;
+    cursor: pointer;
+
+    &--is-focused{
+      background: #F5F5F5;
+
+      &:first-child{
+        border-radius: 8px 0px 0px 0px;
+      }
+
+      &:last-child{
+        border-radius: 0px 0px 0px 8px;
+      }
+    }
+  }
+}
+// Custom Select Form End
