@@ -72,7 +72,7 @@ function FormFirst(props) {
 
                         <div className={styles.formContent}>
                             <Form>
-                                {/* <div className={styles.formItem}>
+                                <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
                                         Вакансия *
                                         { !errors.job
@@ -92,7 +92,7 @@ function FormFirst(props) {
                                     {touched.job && errors.job
                                         && <p className={styles.formError}>{errors.job}</p>
                                     }
-                                </div> */}
+                                </div>
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
                                         ФИО *

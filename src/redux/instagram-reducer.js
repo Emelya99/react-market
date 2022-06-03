@@ -2,6 +2,7 @@ import { instagramAPI } from "../dal/api";
 
 const SET_INSTAGRAM_ITEMS = 'SET-INSTAGRAM-ITEMS';
 const GET_CURRENT_PHOTO = 'GET-CURRENT-PHOTO';
+const RETURN_CURRENT_PHOTO = 'RETURN-CURRENT-PHOTO';
 const IS_BUTTON_ACTIVE_STATUS = 'IS-BUTTON-ACTIVE-STATUS';
 const IS_LOAD_MORE_DISABLED = 'IS-LOAD-MORE-DISABLED';
 
@@ -23,6 +24,11 @@ const instagramReducer = (state = initialState, action) => {
                 ...state,
                 currentPhoto: action.currentPhoto + state.loadMore
             }
+        case RETURN_CURRENT_PHOTO:
+            return {
+                ...state,
+                currentPhoto: 13
+            }
         case IS_BUTTON_ACTIVE_STATUS:
             return {
                 ...state,
@@ -42,6 +48,7 @@ export const setInstagramItems = (instagramItems) => ({ type: SET_INSTAGRAM_ITEM
 export const getCurrentPhoto = (currentPhoto) => ({ type: GET_CURRENT_PHOTO, currentPhoto });
 export const isButtonActiveState = (isButtonActive) => ({ type: IS_BUTTON_ACTIVE_STATUS, isButtonActive });
 export const isLoadMoreDisabledState = (isLoadMoreDisabled) => ({ type: IS_LOAD_MORE_DISABLED, isLoadMoreDisabled });
+export const returnCurrentPhotoAction = () => ({ type: RETURN_CURRENT_PHOTO });
 
 export const getInstagramItems = (previewPhoto) => (dispatch) => {
     dispatch(isLoadMoreDisabledState(true));
@@ -66,6 +73,7 @@ export const loadMoreInstagram = (count) => (dispatch) => {
 
 export const deleteInstagramItems = () => (dispatch) => {
     dispatch(isButtonActiveState(false));
+    dispatch(returnCurrentPhotoAction());
 }
 
 
