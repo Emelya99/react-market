@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import Footer from "./index";
+import { getCompanyName } from "../../redux/info-selectors";
 
 const mapStateToProps = (state) => {
     return {
-        companyName: state.info.companyName
+        companyName: getCompanyName(state)
     }
 }
 

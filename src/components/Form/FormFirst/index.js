@@ -73,7 +73,7 @@ function FormFirst(props) {
                         <div className={styles.formContent}>
                             <Form>
                                 <div className={styles.formItem}>
-                                    <p className={styles.formTitle}>
+                                    {/* <p className={styles.formTitle}>
                                         Вакансия *
                                         { !errors.job
                                                 && <img src={checkedImage} className={styles.checked} alt="checked" />}
@@ -91,7 +91,7 @@ function FormFirst(props) {
                                     />
                                     {touched.job && errors.job
                                         && <p className={styles.formError}>{errors.job}</p>
-                                    }
+                                    } */}
                                 </div>
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
