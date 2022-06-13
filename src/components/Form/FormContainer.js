@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import Form from "./index";
+import { getPhone, getCallPhone } from "../../redux/info-selectors"
 
 const mapStateToProps = (state) => {
     return {
-        phone: state.info.phone,
-        callPhone: state.info.callPhone
+        phone: getPhone(state),
+        callPhone: getCallPhone(state)
     }
 }
 
