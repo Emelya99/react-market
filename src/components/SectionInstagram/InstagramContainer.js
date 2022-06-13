@@ -1,16 +1,17 @@
 import Instagram from './index';
 import { getInstagramItems, loadMoreInstagram, deleteInstagramItems } from './../../redux/instagram-reducer';
+import { getInstagramItemsSelector, getPreviewPhoto, getCurrentPhoto, getIsButtonActive, getIsLoadMoreDisabled } from '../../redux/instagram-selectors'
 import { connect } from 'react-redux';
 
 
 
 const mapStateToProps = (state) => {
     return {
-        instagramItems: state.sectionInstagram.instagramItems,
-        previewPhoto: state.sectionInstagram.previewPhoto,
-        currentPhoto: state.sectionInstagram.currentPhoto,
-        isButtonActive: state.sectionInstagram.isButtonActive,
-        isLoadMoreDisabled: state.sectionInstagram.isLoadMoreDisabled
+        instagramItems: getInstagramItemsSelector(state),
+        previewPhoto: getPreviewPhoto(state),
+        currentPhoto: getCurrentPhoto(state),
+        isButtonActive: getIsButtonActive(state),
+        isLoadMoreDisabled: getIsLoadMoreDisabled(state)
     }
 }
 
