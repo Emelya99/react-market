@@ -5,16 +5,24 @@ const instance = axios.create ({
 })
 
 export const instagramAPI = {
-    getInstagramItems(previewPhoto) {
-        return instance.get(`instagramItems?page=1&limit=${previewPhoto}`)
-        .then(response => {
+    async getInstagramItems(previewPhoto) {
+        try {
+            const response = await instance.get(`instagramItems?page=1&limit=${previewPhoto}`);
             return response.data;
-        })
+        } catch(error) {
+            console.error(error);
+        } finally {
+            console.log("Finally getInstagramItems")
+        }
     },
-    loadMoreInstagramItems(count) {
-        return instance.get(`/instagramItems?page=1&limit=${count}`)
-        .then(response => {
+    async loadMoreInstagramItems(count) {
+        try {
+            const response = await instance.get(`/instagramItems?page=1&limit=${count}`);
             return response.data;
-        })
+        } catch(error){
+            console.error(error);
+        } finally {
+            console.log("Finally loadMoreInstagramItems")
+        }
     }
 }
