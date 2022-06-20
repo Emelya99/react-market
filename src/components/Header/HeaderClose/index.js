@@ -14,7 +14,6 @@ function HeaderClose(props) {
     }, [changeHeaderBackground])
 
     return (
-        
         <Link to="/" >
             <Close />
         </Link>

@@ -3,23 +3,88 @@
     padding: 30px 0;
 }
 
-// HeaderClose
-.close + .header{
-    background: #f5f5f5;
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 // HeaderInfo
 .phone{
     margin-right: 30px;
+
+    & svg{
+        display: none;
+    }
 }
 
 .form{
-    padding: 10px 16px 14px 16px;
+    padding: 10px 16px 13px 16px;
     background: #FFDF31;
     border-radius: 8px;
 
     &:hover{
         color: #FFF;
         background: #000000;
+    }
+}
+
+@media(max-width:767px){
+
+    .header{
+        padding: 21px 0;
+    }
+
+    .header svg{
+        width: 20px;
+        height: 20px;
+    }
+
+    .phone{
+        margin-right: 20px;
+    
+        & svg{
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
+        & span{
+            display: none;
+        }
+    }
+}
+
+@media(max-width: 480px){
+
+    .wrapper{
+        position: relative;
+    }
+
+    .form{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .formWrapper{
+        position: fixed;
+        z-index: 1;
+        top: 18px;
+        left: 0;
+        padding: 0 15px;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .scrolled {
+        opacity: 1;
+        visibility: visible;
+        transition: all .4s;
+    }
+
+    .phone{
+        margin: 0;
     }
 }

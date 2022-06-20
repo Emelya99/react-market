@@ -5,7 +5,7 @@ function Footer(props) {
     return (
         <footer className={styles.footer}>
             <div className='container'>
-                <div className={`${styles.wrapper} d-flex justify-between align-center p-25 mb-25`}>
+                <div className={`${styles.wrapper} d-flex justify-between align-center mb-25`}>
                     <Logo companyName={props.companyName} />
                     <a className='title ml-30 mb-5' href='/#'>поделиться</a>
                     <ul className={`${styles.list} d-flex`}>

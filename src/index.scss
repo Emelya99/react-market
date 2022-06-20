@@ -51,6 +51,12 @@ svg{
   font-size: 32px;
   line-height: 41px;
 }
+@media(max-width:767px){
+  .title{
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
 
 .title-big{
   font-weight: 500;
@@ -83,10 +89,15 @@ button{
 }
 
 .container{
-  max-width: 1140px;
+  max-width: 1188px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 39px;
   position: relative;
+}
+@media(max-width:767px){
+  .container{
+    padding: 0 15px;
+  }
 }
 
 section{

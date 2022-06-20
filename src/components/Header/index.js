@@ -13,7 +13,7 @@ function Header(props) {
             style={{ backgroundColor: props.isBackgroundHeader ? '#FFF' : '#F5F5F5' }}
         >
             <div className='container'>
-                <div className='d-flex justify-between'>
+                <div className={styles.wrapper}>
                     <Logo companyName={props.companyName} />
                     <Routes>
                         <Route path="/" element={<HeaderInfo phone={props.phone} callPhone={props.callPhone} changeHeaderBackground={props.changeHeaderBackground} />} />

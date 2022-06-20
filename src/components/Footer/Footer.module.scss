@@ -1,50 +1,108 @@
 .footer{
-    background: #F5F5F5;
-    padding: 70px 0 35px;
-  
-    .wrapper{
-      background: #FFFFFF;
-      border-radius: 8px;
+  background: #F5F5F5;
+  padding: 70px 0 35px;
+
+  .wrapper{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+  }
+
+  .list{
+    list-style: none;
+
+    & li + li{
+      margin-left: 8px;
     }
-  
-    .list{
-      list-style: none;
-  
-      & li + li{
-        margin-left: 8px;
-      }
-  
-      & a img{
+
+    & a img{
+      transition: all .4s ease;
+
+      &:hover{
         transition: all .4s ease;
-  
-        &:hover{
-          transition: all .4s ease;
-          transform: scale(0.9);
-        }
-      }
-    }
-  
-    .bottom{
-      margin: 0 -15px;
-  
-      & p{
-        width: 50%;
-        padding: 0 15px;
-      }
-  
-      & button{
-        width: auto;
-        max-width: 50%;
-        margin-right: auto;
-        padding: 0 15px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 18px;
-        background: transparent;
-  
-        &:hover{
-          color: #FFDF31;
-        }
+        transform: scale(0.9);
       }
     }
   }
+
+  .bottom{
+    margin: 0 -15px;
+
+    & p{
+      width: 50%;
+      padding: 0 15px;
+    }
+
+    & button{
+      width: auto;
+      max-width: 50%;
+      margin-right: auto;
+      padding: 0 15px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      background: transparent;
+
+      &:hover{
+        color: #FFDF31;
+      }
+    }
+  }
+}
+
+@media(max-width:650px){
+
+  .footer{
+
+    .bottom{
+      margin: 0;
+      flex-direction: column;
+  
+      & p{
+        padding: 0;
+        width: 100%;
+        order: 2;
+      }
+  
+      & button{
+        padding: 0;
+        max-width: 100%;
+        margin-bottom: 24px;
+        order: 1;
+      }
+    }
+  }
+}
+
+@media(max-width:526px){
+
+  .footer{
+    padding: 48px 0 32px;
+
+    .wrapper{
+      border-radius: 0px;
+      padding: 24px 15px 20px 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+
+      & > a{
+        display: none;
+      }
+    }
+  }
+}
+
+@media(max-width:375px){
+
+  .footer{
+
+    .wrapper{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .list{
+      margin-top: 24px;
+    }
+  }
+}
