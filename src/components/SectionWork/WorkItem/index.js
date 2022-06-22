@@ -1,4 +1,4 @@
-import './WorkItem.scss'
+import '../Work.scss';
 
 function WorkItem(props) {
     return (

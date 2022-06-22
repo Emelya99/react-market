@@ -55,10 +55,29 @@ function Work() {
     const settings = {
         infinite: false,
         speed: 600,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
+        variableWidth: true,
         prevArrow: <SlickArrowLeft />,
         nextArrow: <SlickArrowRight />,
+        draggable: false,
+        responsive: [
+            {
+                breakpoint: 861,
+                settings: {
+                    draggable: true, 
+                }
+            },
+            {
+              breakpoint: 376,
+              settings: {
+                infinite: true,
+                variableWidth: false,
+                centerMode: true,
+                draggable: true, 
+              }
+            }
+          ]
     };
     
     return (
