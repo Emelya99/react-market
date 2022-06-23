@@ -17,6 +17,7 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+  word-wrap: break-word;
 }
 
 a,button{
@@ -68,6 +69,12 @@ svg{
   font-size: 72px;
   line-height: 66px;
 }
+@media(max-width:767px){
+  .title-big{
+    font-size: 48px;
+    line-height: 44px;
+  }
+}
 
 button{
   border: none;
@@ -111,6 +118,11 @@ section{
 
 .sec-bottom{
   margin-bottom: 72px;
+}
+@media(max-width:767px){
+  .sec-bottom{
+    margin-bottom: 48px;
+  }
 }
 
 // Arrow

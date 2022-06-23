@@ -14,10 +14,10 @@ export default class Banner extends Component {
     this.state = {
         slides: [
         {
-          title: 'У тебя к этому талант', bannerUrl: '/img/banner-1.jpg'
+          title: 'У тебя к этому талант', bannerUrl: '/img/banner-1.png'
         },
         {
-          title: 'У тебя всё под контролем', bannerUrl: '/img/banner-2.jpg'
+          title: 'У тебя всё под контролем', bannerUrl: '/img/banner-2.png'
         },
         ],
     };
@@ -65,6 +65,14 @@ export default class Banner extends Component {
       slidesToScroll: 1,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
+      responsive: [
+        {
+            breakpoint: 767,
+            settings: {
+              infinite: true
+            }
+        }
+      ]
     };
 
     return (
