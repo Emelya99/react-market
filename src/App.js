@@ -3,8 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import FooterContainer from './components/Footer/FooterContainer';
 import Content from './components/Content';
 import Drawer from './components/Drawer';
-import FormContainer from './components/Form/FormContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+
+const FormContainer = React.lazy(() => import('./components/Form/FormContainer'));
 
 function App() {
   const [drawerOpened, setdrawerOpened] = React.useState(false);
@@ -23,10 +24,12 @@ function App() {
     <div className="wrapper">
       <HeaderContainer />
       <main className='main'>
-        <Routes>
-          <Route path="/" element={<Content />} />
-          <Route path="/form" element={<FormContainer />} />
-        </Routes>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Content />} />
+            <Route path="/form" element={<FormContainer />} />
+          </Routes>
+        </React.Suspense>
       </main>
       <FooterContainer onOpenPolitic={handleOpenPolitic} />
       {drawerOpened && <Drawer onClosePolitic={handleClosePolitic} />}
