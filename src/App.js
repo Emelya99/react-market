@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import FooterContainer from './components/Footer/FooterContainer';
-import Content from './components/Content';
 import Drawer from './components/Drawer';
 import HeaderContainer from './components/Header/HeaderContainer';
 
 const FormContainer = React.lazy(() => import('./components/Form/FormContainer'));
+const Content = React.lazy(() => import('./components/Content'));
 
 function App() {
   const [drawerOpened, setdrawerOpened] = React.useState(false);
