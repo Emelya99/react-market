@@ -14,10 +14,10 @@ export default class Banner extends Component {
     this.state = {
         slides: [
         {
-          title: 'У тебя к этому талант', bannerUrl: '/img/banner-1.png'
+          title: 'У тебя к этому талант', bannerUrl: 'img/banner-1.png'
         },
         {
-          title: 'У тебя всё под контролем', bannerUrl: '/img/banner-2.png'
+          title: 'У тебя всё под контролем', bannerUrl: 'img/banner-2.png'
         },
         ],
     };
