@@ -11,12 +11,12 @@ function Footer(props) {
                     <ul className={`${styles.list} d-flex`}>
                         <li>
                             <a href='/#'>
-                                <img width={24} height={24} alt="facebook" src="/img/facebook.svg"/>
+                                <img width={24} height={24} alt="facebook" src="img/facebook.svg"/>
                             </a>
                         </li>
                         <li>
                             <a href='/#'>
-                                <img width={24} height={24} alt="vk" src="/img/vk.svg"/>
+                                <img width={24} height={24} alt="vk" src="img/vk.svg"/>
                             </a>
                         </li>
                     </ul>
