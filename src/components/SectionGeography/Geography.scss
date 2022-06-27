@@ -1,4 +1,78 @@
-button:disabled{
-  opacity: 0.5;
-  pointer-events: none;
+.geography{
+
+    &__map{
+        width: 100%;
+        height: 540px;
+    }
+
+    &__content{
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn{
+        padding: 9px 15px 11px;
+        background: #FFFFFF;
+        border-radius: 8px;
+
+        &:hover{
+            background: #FFDF31;
+        }
+
+        &:not(:last-child){
+            margin-bottom: 8px;
+        }
+    }
+}
+
+@media(max-width:1024px){
+
+    .geography{
+        margin-bottom: 0;
+
+        .title{
+            padding-left: 39px;
+            padding-right: 39px;
+        }
+
+        .container{
+            padding: 0;
+        }
+
+        &__map{
+            height: 600px;  
+        }
+
+        &__content{
+            left: 39px;
+            bottom: 48px;
+        }
+    }
+}
+
+@media(max-width:767px){
+
+    .geography{
+
+        .title{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        &__map{
+
+            .gm-style {
+                opacity: 0.85;
+            }
+        }
+
+        &__content{
+            left: 15px;
+            bottom: 32px;
+        }
+    }
 }
