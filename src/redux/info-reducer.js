@@ -1,4 +1,4 @@
-const IS_BACKGROUND_HEADER = "IS_BACKGROUND_HEADER";
+const IS_BACKGROUND_HEADER = "header/IS_BACKGROUND_HEADER";
 
 let initialState = {
     phone: '+7 (926) 433-14-16',
