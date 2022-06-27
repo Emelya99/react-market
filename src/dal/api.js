@@ -11,8 +11,6 @@ export const instagramAPI = {
             return response.data;
         } catch(error) {
             console.error(error);
-        } finally {
-            console.log("Finally getInstagramItems")
         }
     },
     async loadMoreInstagramItems(count) {
@@ -21,8 +19,6 @@ export const instagramAPI = {
             return response.data;
         } catch(error){
             console.error(error);
-        } finally {
-            console.log("Finally loadMoreInstagramItems")
         }
     }
 }
