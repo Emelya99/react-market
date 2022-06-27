@@ -19,7 +19,6 @@ const infoReducer = (state = initialState, action) => {
     }
 }
 
-
 export const changeHeaderBackground = (isBackgroundHeader) => ({ type: IS_BACKGROUND_HEADER , isBackgroundHeader});
 
 export default infoReducer;
