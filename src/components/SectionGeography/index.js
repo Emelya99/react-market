@@ -3,7 +3,6 @@ import Title from '../Title';
 import './Geography.scss'
 
 const API_KEY = process.env.REACT_APP_API_KEY
-console.log(API_KEY);
 
 
 function Geography() {    
@@ -14,7 +13,7 @@ function Geography() {
                 <Title
                     title="география"
                 />
-
+                <p>{API_KEY}</p>
             </div>
         </section>
     );
