@@ -23,6 +23,11 @@
             background: #FFDF31;
         }
 
+        &.active{
+            pointer-events: none;
+            background: #FFDF31;
+        }
+
         &:not(:last-child){
             margin-bottom: 8px;
         }
@@ -63,12 +68,12 @@
             padding-right: 15px;
         }
 
-        &__map{
+        // &__map{
 
-            .gm-style {
-                opacity: 0.85;
-            }
-        }
+        //     .gm-style {
+        //         opacity: 0.85;
+        //     }
+        // }
 
         &__content{
             left: 15px;

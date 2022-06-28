@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
 import FooterContainer from './components/Footer/FooterContainer';
 import Drawer from './components/Drawer';
 import HeaderContainer from './components/Header/HeaderContainer';
