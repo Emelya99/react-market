@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-market/static/css/main.68353188.css",
-    "main.js": "/react-market/static/js/main.7ffa9b93.js",
-    "static/css/978.28cb3b90.chunk.css": "/react-market/static/css/978.28cb3b90.chunk.css",
-    "static/js/978.1df1dd36.chunk.js": "/react-market/static/js/978.1df1dd36.chunk.js",
-    "static/css/97.428d0e5a.chunk.css": "/react-market/static/css/97.428d0e5a.chunk.css",
-    "static/js/97.e9ba9ada.chunk.js": "/react-market/static/js/97.e9ba9ada.chunk.js",
-    "static/js/325.82ccac84.chunk.js": "/react-market/static/js/325.82ccac84.chunk.js",
-    "static/js/185.f3d97de6.chunk.js": "/react-market/static/js/185.f3d97de6.chunk.js",
+    "main.js": "/react-market/static/js/main.e3a7515e.js",
+    "static/css/978.d8948c65.chunk.css": "/react-market/static/css/978.d8948c65.chunk.css",
+    "static/js/978.26241eeb.chunk.js": "/react-market/static/js/978.26241eeb.chunk.js",
+    "static/css/583.5ead9b1c.chunk.css": "/react-market/static/css/583.5ead9b1c.chunk.css",
+    "static/js/583.74e1fda2.chunk.js": "/react-market/static/js/583.74e1fda2.chunk.js",
+    "static/js/643.223570a6.chunk.js": "/react-market/static/js/643.223570a6.chunk.js",
+    "static/js/88.5476c5b8.chunk.js": "/react-market/static/js/88.5476c5b8.chunk.js",
     "static/media/slick.svg": "/react-market/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/react-market/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/react-market/static/media/slick.c94f7671dcc99dce43e2.ttf",
@@ -17,16 +17,16 @@
     "static/media/checked.svg": "/react-market/static/media/checked.4889d871143d1aacc59190eec511697d.svg",
     "static/media/form-accepted.svg": "/react-market/static/media/form-accepted.4c3d09d2369384d218a5.svg",
     "main.68353188.css.map": "/react-market/static/css/main.68353188.css.map",
-    "main.7ffa9b93.js.map": "/react-market/static/js/main.7ffa9b93.js.map",
-    "978.28cb3b90.chunk.css.map": "/react-market/static/css/978.28cb3b90.chunk.css.map",
-    "978.1df1dd36.chunk.js.map": "/react-market/static/js/978.1df1dd36.chunk.js.map",
-    "97.428d0e5a.chunk.css.map": "/react-market/static/css/97.428d0e5a.chunk.css.map",
-    "97.e9ba9ada.chunk.js.map": "/react-market/static/js/97.e9ba9ada.chunk.js.map",
-    "325.82ccac84.chunk.js.map": "/react-market/static/js/325.82ccac84.chunk.js.map",
-    "185.f3d97de6.chunk.js.map": "/react-market/static/js/185.f3d97de6.chunk.js.map"
+    "main.e3a7515e.js.map": "/react-market/static/js/main.e3a7515e.js.map",
+    "978.d8948c65.chunk.css.map": "/react-market/static/css/978.d8948c65.chunk.css.map",
+    "978.26241eeb.chunk.js.map": "/react-market/static/js/978.26241eeb.chunk.js.map",
+    "583.5ead9b1c.chunk.css.map": "/react-market/static/css/583.5ead9b1c.chunk.css.map",
+    "583.74e1fda2.chunk.js.map": "/react-market/static/js/583.74e1fda2.chunk.js.map",
+    "643.223570a6.chunk.js.map": "/react-market/static/js/643.223570a6.chunk.js.map",
+    "88.5476c5b8.chunk.js.map": "/react-market/static/js/88.5476c5b8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68353188.css",
-    "static/js/main.7ffa9b93.js"
+    "static/js/main.e3a7515e.js"
   ]
 }
