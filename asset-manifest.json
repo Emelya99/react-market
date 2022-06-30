@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-market/static/css/main.68353188.css",
-    "main.js": "/react-market/static/js/main.e3a7515e.js",
+    "main.css": "/react-market/static/css/main.ba6f14dd.css",
+    "main.js": "/react-market/static/js/main.63702294.js",
     "static/css/978.d8948c65.chunk.css": "/react-market/static/css/978.d8948c65.chunk.css",
     "static/js/978.26241eeb.chunk.js": "/react-market/static/js/978.26241eeb.chunk.js",
     "static/css/583.5ead9b1c.chunk.css": "/react-market/static/css/583.5ead9b1c.chunk.css",
@@ -16,8 +16,8 @@
     "static/media/caret-form.svg": "/react-market/static/media/caret-form.7360615fa8917722eb466e0966922ad9.svg",
     "static/media/checked.svg": "/react-market/static/media/checked.4889d871143d1aacc59190eec511697d.svg",
     "static/media/form-accepted.svg": "/react-market/static/media/form-accepted.4c3d09d2369384d218a5.svg",
-    "main.68353188.css.map": "/react-market/static/css/main.68353188.css.map",
-    "main.e3a7515e.js.map": "/react-market/static/js/main.e3a7515e.js.map",
+    "main.ba6f14dd.css.map": "/react-market/static/css/main.ba6f14dd.css.map",
+    "main.63702294.js.map": "/react-market/static/js/main.63702294.js.map",
     "978.d8948c65.chunk.css.map": "/react-market/static/css/978.d8948c65.chunk.css.map",
     "978.26241eeb.chunk.js.map": "/react-market/static/js/978.26241eeb.chunk.js.map",
     "583.5ead9b1c.chunk.css.map": "/react-market/static/css/583.5ead9b1c.chunk.css.map",
@@ -26,7 +26,7 @@
     "88.5476c5b8.chunk.js.map": "/react-market/static/js/88.5476c5b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68353188.css",
-    "static/js/main.e3a7515e.js"
+    "static/css/main.ba6f14dd.css",
+    "static/js/main.63702294.js"
   ]
 }
