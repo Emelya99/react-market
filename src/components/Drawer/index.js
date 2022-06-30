@@ -1,10 +1,25 @@
+import React from 'react';
 import styles from './Drawer.module.scss';
 import Close from './../Close';
 
 function Drawer(props) {
 
+    const handleScroll = () => {
+        console.log("scroll")
+    };
+
+    React.useEffect(() => {
+        const contentElem = document.querySelector('.drawer');
+        contentElem.addEventListener("scroll", handleScroll);
+        console.log(contentElem.scrollY);
+        return () => {
+            contentElem.removeEventListener("scroll", handleScroll);
+            console.log(contentElem.scrollY);
+        }
+    }, []);
+
     return (
-        <div className={styles.drawer}>
+        <div className={`${styles.drawer} drawer`}>
             <div className={styles.overlay} onClick={props.onClosePolitic}></div>
             <div className={styles.wrapper}>
                 <div className={styles.header}>
