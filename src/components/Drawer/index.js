@@ -1,33 +1,29 @@
 import React from 'react';
+import { motion } from "framer-motion"
 import styles from './Drawer.module.scss';
 import Close from './../Close';
 
 function Drawer(props) {
 
-    const handleScroll = () => {
-        console.log("scroll")
-    };
-
-    React.useEffect(() => {
-        const contentElem = document.querySelector('.drawer');
-        contentElem.addEventListener("scroll", handleScroll);
-        console.log(contentElem.scrollY);
-        return () => {
-            contentElem.removeEventListener("scroll", handleScroll);
-            console.log(contentElem.scrollY);
-        }
-    }, []);
-
     return (
         <div className={`${styles.drawer} drawer`}>
             <div className={styles.overlay} onClick={props.onClosePolitic}></div>
             <div className={styles.wrapper}>
-                <div className={styles.header}>
+                <motion.div
+                    className={styles.header}
+                    drag
+                    dragConstraints={{
+                    top: -50,
+                    left: -50,
+                    right: 50,
+                    bottom: 50,
+                    }}
+                >
                     <h2 className='title-big'>Обработка данных</h2>
                     <button className={styles.close} onClick={props.onClosePolitic}>
                         <Close />
                     </button>
-                </div>
+                </motion.div>
                 <div className={styles.content}>
                     <div className={styles.box}>
                         <h3>1. Что регулирует настоящая политика конфиденциальности</h3>
