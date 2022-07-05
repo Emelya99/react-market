@@ -193,14 +193,13 @@ function FormFirst(props) {
                                     }
                                 </div>
                                 <button
-                                    disabled={!isValid}
                                     className={styles.submitBtn}
                                     onClick={handleSubmit}
                                     type="submit"
                                 >
                                     отправить
                                 </button>
-                                {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                                <pre>{JSON.stringify(values, null, 2)}</pre>
                             </Form>
                         </div>
                     )}
