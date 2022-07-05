@@ -28,14 +28,7 @@ function FormFirst(props) {
     ]
 
     const validationSchema = Yup.object().shape({
-        job: Yup.array()
-        .min(1, "выбирете вакансию")
-        .of(
-          Yup.object().shape({
-            label: Yup.string().required(),
-            value: Yup.string().required()
-          })
-        ),
+        job: Yup.string().required("выбирете вакансию"),
         fullName: Yup.string().required('заполнете поле'),
         phone: Yup.number().required('заполнете поле'),
         email: Yup.string().email('поле заполнено не корректно'),
@@ -63,7 +56,7 @@ function FormFirst(props) {
                     }}
                     validateOnBlur
                     onSubmit={(values) => {
-                        console.log(JSON.stringify(values, null, 2));
+                        alert(JSON.stringify(values, null, 2));
                         props.onClick(false);
                     }}
                     validationSchema={validationSchema}
@@ -73,9 +66,9 @@ function FormFirst(props) {
                         <div className={styles.formContent}>
                             <Form>
                                 <div className={styles.formItem}>
-                                    {/* <p className={styles.formTitle}>
+                                    <p className={styles.formTitle}>
                                         Вакансия *
-                                        { !errors.job
+                                        { !errors.job && values.job.length > 1
                                                 && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                     </p>
                                     <Select
@@ -85,13 +78,13 @@ function FormFirst(props) {
                                         classNamePrefix={'custom-select'}
                                         isSearchable={false}
                                         components={{ DropdownIndicator }}
-                                        onChange={handleChange}
-                                        value={values.job}
-                                        onBlur={handleBlur}
+                                        onChange={selectedOption => {
+                                            handleChange("job")(selectedOption.value);
+                                        }}
                                     />
                                     {touched.job && errors.job
                                         && <p className={styles.formError}>{errors.job}</p>
-                                    } */}
+                                    }
                                 </div>
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
@@ -207,6 +200,7 @@ function FormFirst(props) {
                                 >
                                     отправить
                                 </button>
+                                {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
                             </Form>
                         </div>
                     )}
