@@ -3,6 +3,7 @@ import styles from '../Form.module.scss';
 import { Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Select, { components } from "react-select";
+import InputMask from "react-input-mask";
 import checkedImage from './checked.svg';
 import caretImage from './caret-form.svg';
 import Title from '../../Title';
@@ -29,8 +30,14 @@ function FormFirst(props) {
 
     const validationSchema = Yup.object().shape({
         job: Yup.string().required("выбирете вакансию"),
-        fullName: Yup.string().required('заполнете поле'),
-        phone: Yup.number().required('заполнете поле'),
+        fullName: Yup.string().required('заполните поле'),
+        phone: Yup.string()
+        .test("len", "заполните поле до конца", (val = "") => {
+          const val_length_without_dashes = val.replace(/-|_/g, "").length;
+          console.log(val_length_without_dashes);
+          return val_length_without_dashes === 21;
+        })
+        .required("заполните поле"),
         email: Yup.string().email('поле заполнено не корректно'),
         gender: Yup.string().required("выберите пол"),
         resume: Yup.string(),
@@ -109,15 +116,17 @@ function FormFirst(props) {
                                         <div className={styles.formItem}>
                                             <p className={styles.formTitle}>
                                                 Контактый телефон *
-                                                {!errors.phone && values.phone.length >= 10
+                                                {touched.phone && !errors.phone
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                             </p>
-                                            <Field
+                                            <InputMask
                                                 className={touched.phone && errors.phone && 'error'}
                                                 name="phone"
-                                                type="tel"
+                                                mask="+38 (999) 999 - 99 - 99"
+                                                placeholder="+38 ("
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
                                                 value={values.phone}
-                                                autoComplete="off"
                                             />
                                             {touched.phone && errors.phone
                                                 && <p className={styles.formError}>{errors.phone}</p>
