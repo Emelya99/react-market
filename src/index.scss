@@ -242,7 +242,7 @@ input{
     line-height: 18px;
     padding-left: 36px;
     cursor: pointer;
-    margin: 10px 0 6px;
+    margin: 10px 0 21px;
     display: inline-block;
 
     &:not(:last-child){
@@ -296,6 +296,10 @@ textarea{
 // Form Styles End
 
 // Custom Select Form
+#job.error .custom-select__control{
+  background: #FF6666;
+  opacity: 0.3;
+}
 .wrapper .custom-select{
 
   &__control{

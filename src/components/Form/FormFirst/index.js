@@ -4,6 +4,7 @@ import { Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Select, { components } from "react-select";
 import InputMask from "react-input-mask";
+import React from "react";
 import checkedImage from './checked.svg';
 import caretImage from './caret-form.svg';
 import Title from '../../Title';
@@ -29,12 +30,12 @@ function FormFirst(props) {
     ]
 
     const validationSchema = Yup.object().shape({
-        job: Yup.string().required("выбирете вакансию"),
+        job: Yup.string().required("выберите вакансию"),
         fullName: Yup.string().required('заполните поле'),
+        dateOfBirth: Yup.date().max(new Date(), "этого не может быть").required("выберите дату"),
         phone: Yup.string()
-        .test("len", "заполните поле до конца", (val = "") => {
+        .test("len", "заполните поле", (val = "") => {
           const val_length_without_dashes = val.replace(/-|_/g, "").length;
-          console.log(val_length_without_dashes);
           return val_length_without_dashes === 21;
         })
         .required("заполните поле"),
@@ -68,7 +69,7 @@ function FormFirst(props) {
                     }}
                     validationSchema={validationSchema}
                 >
-                    {({ values, errors, touched, isValid, handleChange, handleBlur, handleSubmit, dirty }) => (
+                    {({ values, errors, touched, isValid, handleChange, handleBlur, handleSubmit, dirty, setFieldValue }) => (
 
                         <div className={styles.formContent}>
                             <Form>
@@ -79,6 +80,7 @@ function FormFirst(props) {
                                                 && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                     </p>
                                     <Select
+                                        className={touched.job && errors.job && 'error'}
                                         id="job"
                                         options={options}
                                         placeholder="выберите работу мечты"
@@ -115,6 +117,25 @@ function FormFirst(props) {
 
                                         <div className={styles.formItem}>
                                             <p className={styles.formTitle}>
+                                                Дата рождения *
+                                                { !errors.dateOfBirth && values.dateOfBirth.length >= 10
+                                                    && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                            </p>
+                                            <Field
+                                                className={touched.dateOfBirth && errors.dateOfBirth && 'error'}
+                                                type="date"
+                                                name="dateOfBirth"
+                                                value={values.dateOfBirth}
+                                                placeholder="28.06.2002"
+                                                pattern="\d{4}-\d{2}-\d{2}"
+                                            />
+                                            { touched.dateOfBirth && errors.dateOfBirth
+                                                && <p className={styles.formError}>{errors.dateOfBirth}</p>
+                                            }
+                                        </div>
+
+                                        <div className={styles.formItem}>
+                                            <p className={styles.formTitle}>
                                                 Контактый телефон *
                                                 {touched.phone && !errors.phone
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
@@ -122,6 +143,7 @@ function FormFirst(props) {
                                             <InputMask
                                                 className={touched.phone && errors.phone && 'error'}
                                                 name="phone"
+                                                type="tel"
                                                 mask="+38 (999) 999 - 99 - 99"
                                                 placeholder="+38 ("
                                                 onChange={handleChange}
