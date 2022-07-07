@@ -159,6 +159,7 @@ label{
   display: block;
 }
 
+.input,
 textarea,
 input{
   width: 100%;
@@ -286,6 +287,12 @@ input{
         display: none;
     }
   }
+}
+
+.upload-file{
+  position: absolute;
+  top: 12px;
+  left: 16px;
 }
 
 textarea{

@@ -1,21 +1,24 @@
+import React from "react";
 import ButtonPhone from '../../ButtonPhone';
 import styles from '../Form.module.scss';
 import { Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Select, { components } from "react-select";
 import InputMask from "react-input-mask";
-import React from "react";
+import { useDropzone } from 'react-dropzone';
 import checkedImage from './checked.svg';
 import caretImage from './caret-form.svg';
 import Title from '../../Title';
 
+import UploadSvg from '../../UploadSvg';
+
 const DropdownIndicator = props => {
     return (
-      <components.DropdownIndicator {...props}>
+        <components.DropdownIndicator {...props}>
             <img src={caretImage} alt="caret-form" />
-      </components.DropdownIndicator>
+        </components.DropdownIndicator>
     );
-  };
+};
 
 function FormFirst(props) {
 
@@ -34,11 +37,11 @@ function FormFirst(props) {
         fullName: Yup.string().required('заполните поле'),
         dateOfBirth: Yup.date().max(new Date(), "этого не может быть").required("выберите дату"),
         phone: Yup.string()
-        .test("len", "заполните поле", (val = "") => {
-          const val_length_without_dashes = val.replace(/-|_/g, "").length;
-          return val_length_without_dashes === 21;
-        })
-        .required("заполните поле"),
+            .test("len", "заполните поле", (val = "") => {
+                const val_length_without_dashes = val.replace(/-|_/g, "").length;
+                return val_length_without_dashes === 21;
+            })
+            .required("заполните поле"),
         email: Yup.string().email('поле заполнено не корректно'),
         gender: Yup.string(),
         resume: Yup.string(),
@@ -58,7 +61,7 @@ function FormFirst(props) {
                         gender: '',
                         email: '',
                         resume: '',
-                        resumeFile: '',
+                        resumeFile: [],
                         captcha: '',
                         accepted: true
                     }}
@@ -69,15 +72,15 @@ function FormFirst(props) {
                     }}
                     validationSchema={validationSchema}
                 >
-                    {({ values, errors, touched, isValid, handleChange, handleBlur, handleSubmit, dirty, setFieldValue }) => (
+                    {({ values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue }) => (
 
                         <div className={styles.formContent}>
                             <Form>
                                 <div className={styles.formItem}>
                                     <p className={styles.formTitle}>
                                         Вакансия *
-                                        { !errors.job && values.job.length > 1
-                                                && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                        {!errors.job && values.job.length > 1
+                                            && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                     </p>
                                     <Select
                                         className={touched.job && errors.job && 'error'}
@@ -118,7 +121,7 @@ function FormFirst(props) {
                                         <div className={styles.formItem}>
                                             <p className={styles.formTitle}>
                                                 Дата рождения *
-                                                { !errors.dateOfBirth && values.dateOfBirth.length >= 10
+                                                {!errors.dateOfBirth && values.dateOfBirth.length >= 10
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                             </p>
                                             <Field
@@ -129,7 +132,7 @@ function FormFirst(props) {
                                                 placeholder="28.06.2002"
                                                 pattern="\d{4}-\d{2}-\d{2}"
                                             />
-                                            { touched.dateOfBirth && errors.dateOfBirth
+                                            {touched.dateOfBirth && errors.dateOfBirth
                                                 && <p className={styles.formError}>{errors.dateOfBirth}</p>
                                             }
                                         </div>
@@ -205,15 +208,18 @@ function FormFirst(props) {
                                         name="resume"
                                         value={values.resume}
                                     />
-                                    {touched.resume && errors.resume
-                                        && <p className={styles.formError}>{errors.resume}</p>
-                                    }
+                                    <UploadComponent setFieldValue={setFieldValue} />
+                                    <ul className={styles.uploadList}>
+                                        {values.resumeFile &&
+                                            values.resumeFile.map((file, i) => (
+                                                <li key={file.path}>
+                                                    {file.path} - {file.size / 1000} мегабайтов
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+
                                 </div>
-
-
-
-
-
                                 <div className={`${styles.formItem} form-checkbox`}>
                                     <label>
                                         <Field type="checkbox" name="accepted" />
@@ -230,28 +236,10 @@ function FormFirst(props) {
                                 >
                                     отправить
                                 </button>
-                                <pre>{JSON.stringify(values, null, 2)}</pre>
                             </Form>
                         </div>
                     )}
                 </Formik>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <div className={styles.purpose}>
                     <Title
@@ -267,5 +255,30 @@ function FormFirst(props) {
     )
 
 }
+
+const UploadComponent = props => {
+    const { setFieldValue } = props;
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop: acceptedFiles => {
+            setFieldValue("resumeFile", acceptedFiles);
+        }
+    });
+    return (
+        <div>
+            { }
+            <div className={`${styles.inputDrop} input`}>
+                <UploadSvg />
+                <div {...getRootProps({ className: "dropzone" })}>
+                    <input
+                        {...getInputProps()}
+                        type="text"
+                        name="resumeFile"
+                    />
+                    <p>выберете или перетащите файл</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default FormFirst;
