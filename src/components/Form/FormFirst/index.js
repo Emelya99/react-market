@@ -40,7 +40,7 @@ function FormFirst(props) {
         })
         .required("заполните поле"),
         email: Yup.string().email('поле заполнено не корректно'),
-        gender: Yup.string().required("выберите пол"),
+        gender: Yup.string(),
         resume: Yup.string(),
         accepted: Yup.boolean().oneOf([true], 'это поле обязательное для заполнения')
     })
@@ -158,7 +158,7 @@ function FormFirst(props) {
                                     <div className={styles.formColumn}>
                                         <div className={`${styles.formItem} form-radio`}>
                                             <p className={styles.formTitle}>
-                                                Пол *
+                                                Пол
                                                 {!errors.gender && values.gender.length > 1
                                                     && <img src={checkedImage} className={styles.checked} alt="checked" />}
                                             </p>
