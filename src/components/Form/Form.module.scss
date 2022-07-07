@@ -36,6 +36,7 @@
 
 .formRow{
     display: flex;
+    align-items: flex-end;
     margin: 0 -15px;
 }
 
@@ -76,6 +77,12 @@
             margin-bottom: 4px;
         }
     }
+}
+
+.requiredNotice{
+    opacity: 0.3;
+    max-width: 200px;
+    margin-bottom: 5px;
 }
 
 .submitBtn{
@@ -125,6 +132,29 @@
 
 @media(max-width:1024px){
 
+    .form{
+    
+        h2{
+            margin-bottom: 72px;
+            max-width: 570px;
+        }
+    }
+
+    .formContent{
+        width: 100%;
+        padding: 0;
+        margin-bottom: 72px;
+    }
+
+    .purpose{
+        width: 100%;
+        padding: 0;
+    }
+
+    .requiredNotice{
+        max-width: 100%;
+    }
+
     .content{
         width: 100%;
         padding: 0;
@@ -145,6 +175,20 @@
         & h2{
             margin-bottom: 32px;
         }
+    }
+
+    .formContent{
+        margin: 16px 0 48px;
+    }
+
+    .formRow{
+        margin: 0;
+        display: block;
+    }
+
+    .formColumn{
+        padding: 0;
+        width: 100%;
     }
 
     .content{
