@@ -14,6 +14,7 @@
     "macro-css": "^1.0.5",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-dropzone": "^14.2.2",
     "react-input-mask": "^3.0.0-alpha.2",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
