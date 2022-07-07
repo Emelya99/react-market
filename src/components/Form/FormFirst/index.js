@@ -45,6 +45,7 @@ function FormFirst(props) {
         email: Yup.string().email('поле заполнено не корректно'),
         gender: Yup.string(),
         resume: Yup.string(),
+        captcha: Yup.string(),
         accepted: Yup.boolean().oneOf([true], 'это поле обязательное для заполнения')
     })
 
@@ -190,7 +191,7 @@ function FormFirst(props) {
                                                 value={values.email}
                                                 autoComplete="off"
                                             />
-                                            {touched.email && errors.email
+                                            { touched.email && errors.email
                                                 && <p className={styles.formError}>{errors.email}</p>
                                             }
                                         </div>
@@ -218,8 +219,27 @@ function FormFirst(props) {
                                             ))
                                         }
                                     </ul>
-
                                 </div>
+
+                                <div className={styles.formRow} style={{marginBottom: "-6px"}}>
+                                    <div className={styles.formColumn}>
+                                        <div className={styles.formItem}>
+                                            <p className={styles.formTitle}>
+                                                Капча
+                                                { !errors.captcha 
+                                                    && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className={styles.formColumn}>
+                                        <div className={styles.formItem}>
+                                            <p className={styles.requiredNotice}>
+                                                * поля для обязательного заполнения
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className={`${styles.formItem} form-checkbox`}>
                                     <label>
                                         <Field type="checkbox" name="accepted" />
