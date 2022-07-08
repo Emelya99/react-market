@@ -323,6 +323,15 @@ input {
   }
 }
 
+@media(max-width:767px) {
+  .form-checkbox {
+
+    & span {
+      color: #000;
+    }
+  }
+}
+
 .upload-file {
   position: absolute;
   top: 12px;

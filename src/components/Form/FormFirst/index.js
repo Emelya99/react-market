@@ -68,7 +68,7 @@ function FormFirst(props) {
                     }}
                     validateOnBlur
                     onSubmit={(values) => {
-                        alert(JSON.stringify(values, null, 2));
+                        console.log(JSON.stringify(values, null, 2));
                         props.onClick(false);
                     }}
                     validationSchema={validationSchema}
@@ -214,7 +214,7 @@ function FormFirst(props) {
                                         {values.resumeFile &&
                                             values.resumeFile.map((file, i) => (
                                                 <li key={file.path}>
-                                                    {file.path} - {file.size / 1000} мегабайтов
+                                                    {file.path} - {file.size / 1000} МБ
                                                 </li>
                                             ))
                                         }
