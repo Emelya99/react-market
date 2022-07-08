@@ -204,6 +204,7 @@ input {
 }
 
 .form-checkbox {
+  margin-top: -10px;
 
   & label {
     cursor: pointer;
@@ -301,6 +302,10 @@ input {
   }
 }
 
+form .form-captcha{
+  width: 54%;
+}
+
 @media(max-width:1060px) {
   .form-radio label:not(:last-child) {
     margin-right: 25px;
@@ -310,6 +315,10 @@ input {
 @media(max-width:1024px) {
   .form-radio label:not(:last-child) {
     margin-right: 72px;
+  }
+
+  form .form-captcha{
+    width: 50%;
   }
 
   .form-checkbox {
@@ -328,7 +337,12 @@ input {
 }
 
 @media(max-width:767px) {
+  form .form-captcha{
+    width: 100%;
+  }
+
   .form-checkbox {
+    margin-top: 0;
 
     & span {
       color: #000;

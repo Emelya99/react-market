@@ -7,6 +7,7 @@ import Select, { components } from "react-select";
 import InputMask from "react-input-mask";
 import { useDropzone } from 'react-dropzone';
 import checkedImage from './checked.svg';
+import ReCAPTCHA from "react-google-recaptcha";
 import caretImage from './caret-form.svg';
 import Title from '../../Title';
 
@@ -45,7 +46,7 @@ function FormFirst(props) {
         email: Yup.string().email('поле заполнено не корректно'),
         gender: Yup.string(),
         resume: Yup.string(),
-        captcha: Yup.string(),
+        captcha: Yup.string().required('пройдите проверку'),
         accepted: Yup.boolean().oneOf([true], 'это поле обязательное для заполнения')
     })
 
@@ -222,13 +223,20 @@ function FormFirst(props) {
                                 </div>
 
                                 <div className={styles.formRow} style={{marginBottom: "-6px"}}>
-                                    <div className={styles.formColumn}>
+                                    <div className={`${styles.formColumn} form-captcha`}>
                                         <div className={styles.formItem}>
                                             <p className={styles.formTitle}>
-                                                Капча
-                                                { !errors.captcha 
-                                                    && <img src={checkedImage} className={styles.checked} alt="checked" />}
+                                                Капча *
                                             </p>
+                                            <ReCAPTCHA
+                                                sitekey="6LfdItQgAAAAAM2XAw27RhRyIypYQ4aX-u3N5ft3"
+                                                onChange={value => {
+                                                    setFieldValue("captcha", value);
+                                                }}
+                                            />
+                                            {touched.captcha && errors.captcha
+                                                && <p className={styles.formError}>{errors.captcha}</p>
+                                            }
                                         </div>
                                     </div>
                                     <div className={styles.formColumn}>
@@ -250,7 +258,6 @@ function FormFirst(props) {
                                     }
                                 </div>
                                 <button
-                                    disabled={!isValid}
                                     className={styles.submitBtn}
                                     onClick={handleSubmit}
                                     type="submit"
