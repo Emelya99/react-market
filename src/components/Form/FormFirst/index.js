@@ -73,7 +73,7 @@ function FormFirst(props) {
                     }}
                     validationSchema={validationSchema}
                 >
-                    {({ values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue }) => (
+                    {({ values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue, isValid, dirty }) => (
 
                         <div className={styles.formContent}>
                             <Form>
@@ -250,6 +250,7 @@ function FormFirst(props) {
                                     }
                                 </div>
                                 <button
+                                    disabled={!isValid}
                                     className={styles.submitBtn}
                                     onClick={handleSubmit}
                                     type="submit"
