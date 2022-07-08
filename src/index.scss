@@ -89,6 +89,10 @@ button {
   &:hover {
     transition: all .4s ease;
   }
+
+  &:disabled{
+    pointer-events: none;
+  }
 }
 
 #root {
