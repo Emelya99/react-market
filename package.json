@@ -1,7 +1,7 @@
 {
   "name": "market",
   "version": "0.1.0",
-  "homepage": "https://emelya99.github.io/react-market",
+  "homepage": "https://react-market-emelya99.vercel.app",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.12.0",
