@@ -1,8 +1,8 @@
 const IS_BACKGROUND_HEADER = 'header/IS_BACKGROUND_HEADER';
 
 let initialState = {
-  phone: '+7 (926) 433-14-16',
-  callPhone: 'tel:+79264331416',
+  phone: '+38 (066) 433-14-16',
+  callPhone: 'tel:+380664331416',
   companyName: 'гросс маркет',
   isBackgroundHeader: true,
 };
