@@ -13,8 +13,6 @@ import Title from '../../Title';
 
 import UploadSvg from '../../UploadSvg';
 
-const API_KEY = process.env.REACT_APP_CAPTCHA_KEY;
-
 const DropdownIndicator = (props) => {
   return (
     <components.DropdownIndicator {...props}>
@@ -239,7 +237,7 @@ function FormFirst(props) {
                     <div className={styles.formItem}>
                       <p className={styles.formTitle}>Капча *</p>
                       <ReCAPTCHA
-                        sitekey={API_KEY}
+                        sitekey="6LfdItQgAAAAAM2XAw27RhRyIypYQ4aX-u3N5ft3"
                         onChange={(value) => {
                           setFieldValue('captcha', value);
                         }}

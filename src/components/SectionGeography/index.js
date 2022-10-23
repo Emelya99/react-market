@@ -5,8 +5,6 @@ import { defaultTheme } from './Theme';
 import { markers } from './Markers';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-
 const center = {
   lat: 50.449607948713826,
   lng: 30.523178571371687,
@@ -54,7 +52,7 @@ const Geography = () => {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: API_KEY,
+    googleMapsApiKey: 'AIzaSyBs4gl97q0--W9um-atMaflaFU19yektqM',
   });
 
   const onLoad = React.useCallback(function callback(map) {
