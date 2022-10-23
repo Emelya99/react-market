@@ -1,45 +1,47 @@
-import React from "react";
-import Title from "../Title";
-import styles from "./Instagram.module.scss";
-import InstagramItem from "./InstagramItem";
+import React from 'react';
+import Title from '../Title';
+import styles from './Instagram.module.scss';
+import InstagramItem from './InstagramItem';
 
 class Instagram extends React.Component {
+  componentDidMount() {
+    this.props.getInstagramItems(this.props.previewPhoto);
+  }
 
-    componentDidMount() {
-        this.props.getInstagramItems(this.props.previewPhoto);
-    }
+  loadMorePhoto = (count) => {
+    this.props.loadMoreInstagram(count);
+  };
 
-    loadMorePhoto = (count) => {
-        this.props.loadMoreInstagram(count);
-    }
+  componentWillUnmount() {
+    this.props.deleteInstagramItems();
+  }
 
-    componentWillUnmount () {
-        this.props.deleteInstagramItems();
-    }
+  render() {
+    let instagramElements = this.props.instagramItems.map((obj, index) => {
+      return <InstagramItem key={index} imgUrl={obj.imgUrl} alt={obj.alt} />;
+    });
 
-    render() {
+    let count = this.props.currentPhoto;
 
-        let instagramElements =
-            this.props.instagramItems.map((obj, index) => { return <InstagramItem key={index} imgUrl={obj.imgUrl} alt={obj.alt} /> })
-
-        let count = this.props.currentPhoto;
-
-        return (
-            <section className={`${styles.instagram} sec-bottom`}>
-                <div className="container">
-                    <Title
-                        title="мы в инстаграме"
-                    />
-                    <div className={styles.wrapper}>
-                        {instagramElements}
-                    </div>
-                    {this.props.isButtonActive ? null :
-                        <button className={styles.btn} disabled={this.props.isLoadMoreDisabled} onClick={() => { this.loadMorePhoto(count) }}>показать ещё</button>}
-                </div>
-            </section>
-        );
-    }
-
+    return (
+      <section className={`${styles.instagram} sec-bottom`}>
+        <div className="container">
+          <Title title="мы в инстаграме" />
+          <div className={styles.wrapper}>{instagramElements}</div>
+          {this.props.isButtonActive ? null : (
+            <button
+              className={styles.btn}
+              disabled={this.props.isLoadMoreDisabled}
+              onClick={() => {
+                this.loadMorePhoto(count);
+              }}>
+              показать ещё
+            </button>
+          )}
+        </div>
+      </section>
+    );
+  }
 }
 
 export default Instagram;

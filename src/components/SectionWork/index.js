@@ -1,107 +1,96 @@
-import React from "react";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import React from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 import ArrowPrev from '../ArrowPrev';
 import ArrowNext from '../ArrowNext';
 import Title from '../Title';
 import './Work.scss';
-import WorkItem from "./WorkItem";
-  
-    
+import WorkItem from './WorkItem';
+
 function Work() {
-    const [items, setItems] = React.useState([]);
+  const [items, setItems] = React.useState([]);
 
-    React.useEffect(() => {
-        fetch('https://625187db2dc339451d2ef136.mockapi.io/workItems')
-        .then((res) => {
-            return res.json();
-        })
-        .then((json) => {
-            setItems(json);
-        });
-    }, []);
+  React.useEffect(() => {
+    fetch('https://625187db2dc339451d2ef136.mockapi.io/workItems')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
 
-    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-        <button
-            {...props}
-            className={
-            "prev arrow" +
-            (currentSlide === 0 ? " disabled" : "")
-            }
-            aria-hidden="true"
-            aria-disabled={currentSlide === 0 ? true : false}
-            type="button"
-        >
-            <ArrowPrev />
-        </button>
-    );
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={'prev arrow' + (currentSlide === 0 ? ' disabled' : '')}
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button">
+      <ArrowPrev />
+    </button>
+  );
 
-    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-        <button
-            {...props}
-            className={
-            "next arrow" +
-            (currentSlide + 2 === slideCount - 1 ? " disabled" : "")
-            }
-            aria-hidden="true"
-            aria-disabled={currentSlide + 2 === slideCount - 1 ? true : false}
-            type="button"
-        >
-            <ArrowNext />
-        </button>
-    );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={'next arrow' + (currentSlide + 2 === slideCount - 1 ? ' disabled' : '')}
+      aria-hidden="true"
+      aria-disabled={currentSlide + 2 === slideCount - 1 ? true : false}
+      type="button">
+      <ArrowNext />
+    </button>
+  );
 
-    const settings = {
-        infinite: false,
-        speed: 600,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: true,
-        prevArrow: <SlickArrowLeft />,
-        nextArrow: <SlickArrowRight />,
-        draggable: false,
-        responsive: [
-            {
-                breakpoint: 861,
-                settings: {
-                    draggable: true, 
-                }
-            },
-            {
-              breakpoint: 376,
-              settings: {
-                infinite: true,
-                variableWidth: false,
-                centerMode: true,
-                draggable: true, 
-              }
-            }
-          ]
-    };
-    
-    return (
-        <section className="work sec-bottom">
-            <div className="container">
-                <Title
-                    title="вакансии в гросс маркете"
-                />
-                <Slider {...settings}>
-                    {items.map(slide => {
-                        return (
-                            <WorkItem 
-                                key={slide.badge}
-                                badge={slide.badge}
-                                workUrl={slide.workUrl}
-                                alt={slide.badge}
-                                text={slide.text}
-                            />
-                        );
-                    })}
-                </Slider>
-            </div>
-        </section>
-    );
+  const settings = {
+    infinite: false,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    draggable: false,
+    responsive: [
+      {
+        breakpoint: 861,
+        settings: {
+          draggable: true,
+        },
+      },
+      {
+        breakpoint: 376,
+        settings: {
+          infinite: true,
+          variableWidth: false,
+          centerMode: true,
+          draggable: true,
+        },
+      },
+    ],
+  };
+
+  return (
+    <section className="work sec-bottom">
+      <div className="container">
+        <Title title="вакансии в гросс маркете" />
+        <Slider {...settings}>
+          {items.map((slide) => {
+            return (
+              <WorkItem
+                key={slide.badge}
+                badge={slide.badge}
+                workUrl={slide.workUrl}
+                alt={slide.badge}
+                text={slide.text}
+              />
+            );
+          })}
+        </Slider>
+      </div>
+    </section>
+  );
 }
 
 export default Work;

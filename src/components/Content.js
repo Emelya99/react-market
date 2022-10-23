@@ -5,14 +5,14 @@ import InstagramContainer from './SectionInstagram/InstagramContainer';
 import Geography from './SectionGeography';
 
 function Content() {
-    return (
-        <React.Fragment>
-            <Banner />
-            <Work />
-            <InstagramContainer />
-            <Geography />
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Banner />
+      <Work />
+      <InstagramContainer />
+      <Geography />
+    </React.Fragment>
+  );
 }
 
 export default Content;
